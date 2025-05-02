@@ -17,6 +17,11 @@ function Usuario(id, nombre, email) {
     this.id= id
     this.nombre = nombre
     this.email = email
+    this.librosPrestados = 0
+
+    this.prestarLibro = function () {
+        this.librosPrestados++
+    }
 }
 
 
@@ -25,7 +30,9 @@ function Prestamo(id, libroId, usuarioId, fechaPrestamo) {
     this.id = id
     this.libroId = libroId
     this.usuarioId = usuarioId
-    this.fechaPrestamo = fechaPrestamo
+    this.fechaPrestamo = new Date (fechaPrestamo)
+    this.fechaDevolucion = null
+    this.estado = "Prestado"
 }
 
 // Base de datos
